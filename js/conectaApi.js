@@ -18,6 +18,10 @@ async function construirVideo(titulo, descricao, url, imagem) {
             imagem: imagem
         })
     });
+
+    if (!conexao.ok) {
+        throw new Error("DEU ERRO");
+    }
     // Sem segundo parâmetro o padrão é GET
     const conexaoConvertida = await conexao.json();
     return conexaoConvertida;
